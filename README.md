@@ -7,15 +7,19 @@ FOR individuals that are seeking for an efficient task management application WH
 ## Installation
 
 1. Clone the repo
-   ```sh
-   git clone
-    ```
+
+```sh
+git clone
+```
 
 2. Install NPM packages
+
     ```sh
     npm install
     ```
+
 3. Run the app
+
     ```sh
     npm run dev
     ```
