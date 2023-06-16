@@ -4,6 +4,7 @@ import Task from './Task';
 const CalendarComponent = () => {
     const [value, onChange] = useState(new Date().toISOString().substring(0, 10));
     const [info, setInfo] = useState([{}]);
+    const [selectedTask, setSelectedTask] = useState(null);
 
     const formSubmitHandler = (e) => {
         // Prevent reload
@@ -15,8 +16,6 @@ const CalendarComponent = () => {
         // Set state
         let newInfo = [...info, data];
         setInfo(newInfo);
-
-
         // Reset form
         e.target.reset();
     }
@@ -28,8 +27,7 @@ const CalendarComponent = () => {
         for (let i = 0; i < info.length; i++) {
             // Check if date matches
             if (info[i].deadline === String(date)) {
-                // console log form data
-                console.log(info[i]);
+                setSelectedTask(info[i]);
             }
         }
     }
@@ -39,7 +37,7 @@ const CalendarComponent = () => {
             <div>
                 <Calendar onChange={onChange} value={value} onClickDay={calendarClickHandler} />
             </div>
-            <div>
+            <div className='task-form'>
                 <form onSubmit={formSubmitHandler}>
                     <label>Task Name</label>
                     <input type="text" name="taskName" />
@@ -54,17 +52,10 @@ const CalendarComponent = () => {
             </div>
 
             <div>
-                {info.length > 1 &&
-                    info.map((data, index) => (
-                        <Task
-                            key={index}
-                            taskName={data.taskName}
-                            taskDescription={data.taskDescription}
-                            note={data.note}
-                            deadline={data.deadline}
-                        />
-                    ))
-                }
+            {
+                // If selectedTask is not null, render Task component
+                selectedTask ? <Task taskName={selectedTask.taskName} taskDescription={selectedTask.taskDescription} note={selectedTask.note} deadline={selectedTask.deadline} /> : null 
+            }
             </div>
         </>
     )
