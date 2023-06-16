@@ -27,7 +27,7 @@ const CalendarComponent = () => {
         for (let i = 0; i < info.length; i++) {
             // Check if date matches
             if (info[i].deadline === String(date)) {
-                setSelectedTask(info[i]);
+                setSelectedTask([...info], info[i]);
             }
         }
     }
@@ -53,8 +53,14 @@ const CalendarComponent = () => {
 
             <div>
             {
-                // If selectedTask is not null, render Task component
-                selectedTask ? <Task taskName={selectedTask.taskName} taskDescription={selectedTask.taskDescription} note={selectedTask.note} deadline={selectedTask.deadline} /> : null 
+                // If selectedTask is not null, loop and render Task component
+                selectedTask !== null ? selectedTask.map((task, index) => {
+                    return (
+                        <Task key={index} taskName={task.taskName} taskDescription={task.taskDescription} note={task.note} deadline={task.deadline} />
+                    )
+                }
+                ) : null
+                
             }
             </div>
         </>
