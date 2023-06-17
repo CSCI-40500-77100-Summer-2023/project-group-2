@@ -68,7 +68,7 @@ const CalendarComponent = () => {
                 // If selectedTask is not null, loop and render Task component
                 selectedTask !== null ? selectedTask.map((task, index) => {
                     return (
-                        <Task key={index} taskName={task.taskName} taskDescription={task.taskDescription} note={task.note} deadline={task.deadline} />
+                        <Task key={index} taskName={task.taskName} taskDescription={task.taskDescription} note={task.note} deadline={task.deadline} remindMe={task.remindMe} />
                     )
                 }
                 ) : null
