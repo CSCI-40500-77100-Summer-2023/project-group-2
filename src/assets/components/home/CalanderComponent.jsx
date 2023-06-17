@@ -45,16 +45,19 @@ const CalendarComponent = () => {
     return (
         <>
             <div>
+                <h1>TaskFlow</h1>
+            </div>
+            <div>
                 <Calendar onChange={onChange} value={value} onClickDay={calendarClickHandler} />
             </div>
             <div className='task-form'>
                 <form onSubmit={formSubmitHandler}>
                     <label>Task Name</label>
-                    <input type="text" name="taskName" />
+                    <input type="text" name="taskName" placeholder='Job Interview' />
                     <label>Task Description</label>
-                    <input type="text" name="taskDescription" />
+                    <input type="text" name="taskDescription" placeholder='Study'/>
                     <label>Note</label>
-                    <input type="text" name="note" />
+                    <input type="text" name="note" placeholder='Need to pass'/>
                     <label>Deadline</label>
                     <input type="date" name="deadline" />
                     <label>Remind Me</label>
