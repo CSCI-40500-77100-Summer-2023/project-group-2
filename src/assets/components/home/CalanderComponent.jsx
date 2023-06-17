@@ -3,8 +3,8 @@ import Calendar from 'react-calendar';
 import Task from './Task';
 const CalendarComponent = () => {
     const [value, onChange] = useState(new Date().toISOString().substring(0, 10));
-    const [info, setInfo] = useState([{}]);
     const [selectedTask, setSelectedTask] = useState(null);
+    const [info, setInfo] = useState(new Map());
 
     const formSubmitHandler = (e) => {
         // Prevent reload
@@ -13,9 +13,17 @@ const CalendarComponent = () => {
         const formData = new FormData(e.target);
         // Create object from form data
         const data = Object.fromEntries(formData);
-        // Set state
-        let newInfo = [...info, data];
-        setInfo(newInfo);
+        // Add object to info array
+        if(info.has(data.deadline)) {
+            // Add to existing array
+            const temp = info.get(data.deadline);
+            temp.push(data);
+            info.set(data.deadline, temp);
+        }
+        else {
+            // Create new array
+            info.set(data.deadline, [data]);
+        }
         // Reset form
         e.target.reset();
     }
@@ -23,13 +31,15 @@ const CalendarComponent = () => {
     const calendarClickHandler = (e) => {
         // Get date clicked on calendar
         const date = e.toISOString().substring(0, 10);
-        // Loop through info array
-        for (let i = 0; i < info.length; i++) {
-            // Check if date matches
-            if (info[i].deadline === String(date)) {
-                setSelectedTask([...info], info[i]);
-            }
+        // If info array has data for the date clicked, set selectedTask to the data
+        if (info.has(date)) {
+            setSelectedTask(info.get(date));
         }
+        // If info array does not have data for the date clicked, set selectedTask to null
+        else {
+            setSelectedTask(null);
+        }
+
     }
 
     return (
