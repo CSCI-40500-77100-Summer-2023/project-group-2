@@ -31,8 +31,12 @@ FOR individuals that are seeking for an efficient task management application WH
 ## Usage
 
 1. Fill out the form to create a new task
-2. Click Submit
-3. Select data on calander to view tasks
+2. Select deadline date and check remind me button (currently true/false)
+3. Click Submit
+4. Select date on calendar to view tasks
+
+## Notes
+Currently, tasks are not saved serverside therefore closing the tab will delete all tasks that have been made.
 
 
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/KgC_EPX5)
