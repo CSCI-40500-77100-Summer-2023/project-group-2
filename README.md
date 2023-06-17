@@ -6,11 +6,15 @@ FOR individuals that are seeking for an efficient task management application WH
 
 ## Installation
 
-1. Clone the repo
+1. Clone the repo with HTTPS or SSH
 
-```sh
-git clone
-```
+    ```sh
+    git clone https://github.com/CSCI-40500-77100-Summer-2023/project-group-2.git
+    ```
+
+    ```sh
+    git clone git@github.com:CSCI-40500-77100-Summer-2023/project-group-2.git
+    ```
 
 2. Install NPM packages
 

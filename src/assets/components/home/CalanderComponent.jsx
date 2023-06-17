@@ -47,6 +47,8 @@ const CalendarComponent = () => {
                     <input type="text" name="note" />
                     <label>Deadline</label>
                     <input type="date" name="deadline" />
+                    <label>Remind Me</label>
+                    <input type="checkbox" name="remindMe" />
                     <input type="submit" value="Submit" />
                 </form>
             </div>
