@@ -1,5 +1,5 @@
 import './App.css'
-import CalendarComponent from './assets/components/home/CalanderComponent'
+import CalendarComponent from './assets/components/home/CalendarComponent'
 
 const App = () => {
 
