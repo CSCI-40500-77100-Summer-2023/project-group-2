@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react'
 import { UserAuth } from '../../backend/AuthContext';
 import { useNavigate } from 'react-router-dom'
+import { addNewUser } from '../../backend/DatabaseManager';
 const SignUpPage = () => {
     const [Email, setEmail] = useState("")
     const [Password, setPassword] = useState("")
@@ -14,6 +15,7 @@ const SignUpPage = () => {
         // prevent the default form submission behavior
         try {
             await createUser(Email, Password);
+            await addNewUser(Email, Password);
             navigate('/toggle');
         } catch (error) {
             console.log(error);
