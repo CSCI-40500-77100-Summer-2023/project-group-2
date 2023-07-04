@@ -44,10 +44,7 @@ const CalendarComponent = () => {
 
     return (
         <>
-            <div>
-                <h1>TaskFlow</h1>
-            </div>
-            <div>
+            <div class="content">
                 <Calendar onChange={onChange} value={value} onClickDay={calendarClickHandler} />
             </div>
             <div className='task-form'>
