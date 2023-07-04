@@ -37,8 +37,8 @@ const LoginPage = () => {
     return (
         <form onSubmit={onSubmit}>
             <h2>Login</h2>
-            <input onChange={handleOnchnage} type="email" placeholder="Email" required />
-            <input onChange={handleOnchnage} type="password" placeholder="Password" required />
+            <input onChange={handleOnchnage} id="Email" type="email" placeholder="Email" required />
+            <input onChange={handleOnchnage} id="Password" type="password" placeholder="Password" required />
             <button type="submit">Login</button>
             <button type="button" className="google-login">Login with Google</button> {/* Google login button */}
             <Link to="/signup">Don't have an account? Sign Up</Link>
