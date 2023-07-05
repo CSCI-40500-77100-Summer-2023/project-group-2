@@ -1,16 +1,40 @@
 import { UserAuth } from "./AuthContext";
-import { collection, addDoc } from "firebase/firestore";
 import { db } from "./FirebaseConfig";
+import { collection, doc, setDoc } from "firebase/firestore";
 
-// Create a function that adds a new document to the database when user signs up for an account
+// Function to add a new document to the "users" collection
 export const addNewUser = async (email, password) => {
+  try {
+    const userDocRef = doc(db, "users", email);
+    await setDoc(userDocRef, {
+      email: email,
+      password: password,
+    });
+    console.log("Document written with ID: ", userDocRef.id);
+  } catch (error) {
+    console.error("Error adding document: ", error);
+  }
+};
+
+// Function adds the map object holding user's dates to the user's document
+export const addDatesToUser = async (email, dates) => {
     try {
-        const docRef = await addDoc(collection(db, "users", email), {
-            email: email,
-            password: password
-        });
-        console.log("Document written with ID: ", docRef.id);
+        // Check if document is empty
+        const userDocRef = doc(db, "users", email);
+        const docSnap = await userDocRef.get();
+        if (docSnap.exists()) {
+            // If document exists, add the dates to the document
+            await setDoc(userDocRef, {
+                dates: dates,
+            }, { merge: true });
+        } else {
+            // If document does not exist, create the document and add the dates to the document
+            await setDoc(userDocRef, {
+                dates: dates,
+            });
+        }
     } catch (error) {
         console.error("Error adding document: ", error);
     }
-}
+};
+

@@ -3,10 +3,12 @@ import Calendar from 'react-calendar';
 import Task from './Task';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { addDatesToUser } from '../../backend/DatabaseManager';
+import { UserAuth } from '../../backend/AuthContext';
 const CalendarComponent = ({ info, setInfo }) => {
     const [value, onChange] = useState(new Date().toISOString().substring(0, 10));
     const [selectedTask, setSelectedTask] = useState(null);
+    const { user } = UserAuth();
 
     const formSubmitHandler = (e) => {
         e.preventDefault();
@@ -42,7 +44,6 @@ const CalendarComponent = ({ info, setInfo }) => {
         e.target.reset();
         createNotification("success", "Form submitted successfully!");
         checkDeadline(new Date(data.deadline));
-        console.log(info);
     }
 
     const checkDeadline = (deadlineDate) => {
