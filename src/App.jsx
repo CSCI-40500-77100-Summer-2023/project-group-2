@@ -1,12 +1,11 @@
 import './App.css'
-import CalendarComponent from './assets/components/home/CalendarComponent'
-
+import ToggleSwitch from './assets/components/home/ToggleSwitch'
 const App = () => {
 
   return (
-    <>
-    <CalendarComponent />
-    </>
+    <div className="App">
+    <ToggleSwitch />
+    </div>
   )
 }
 
