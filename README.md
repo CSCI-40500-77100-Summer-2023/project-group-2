@@ -34,6 +34,7 @@ FOR individuals that are seeking for an efficient task management application WH
 2. Select deadline date and check remind me button (currently true/false)
 3. Click Submit
 4. Select date on calendar to view tasks
+5. Click ListView to see a list of all saved tasks
 
 ## Notes
 
