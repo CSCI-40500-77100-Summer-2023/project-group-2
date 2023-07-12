@@ -52,3 +52,32 @@ Currently, tasks are not saved serverside therefore closing the tab will delete 
 3. Software Reuse - By using open-source software such as React, we can save development time and effort. However, this will constrain us to certain architectural choices.
 4. Scalability - In order for TaskFlow to continue growth, we would need to consider designing the architecture in a way that allows for quikc and efficient scaling up and down. We would need to implement technologies that support horizontal scaling such as distributed databases and load balancers.
 5. Software Compatability - It is important to maintain software compatability with other software systems because not every user uses the same devices and systems. Users and clients might need to import or export data between different systems.
+
+### Generic Layered Architecture
+
+1. Web-based Interface
+2. Authentication
+3. Application-specific Functionality
+4. Database Management
+
+### Architecture Diagram
+
+Web-based Interface:
+Web Browser, TaskFlow App
+
+Authentication:
+User Management, Task Management Logic
+
+Application-specific Functionality:
+Task Services, Notification System
+
+Database Management:
+User Storage, Application Storage, Logging and Monitoring
+
+### Technologies
+
+1. Database - NoSQL database because it is flexible to add document oriented data.
+2. Platform - Web platform called Netlify to host our web application.
+3. Server - AWS cloud server is the server that Netlify is using.
+4. Open Source - React App and for our dependencies we used React-Router-Dom, React-Calendar, Firebase, and React-Notifications.
+5. Development Tools - VS Code to help us code our web application.
