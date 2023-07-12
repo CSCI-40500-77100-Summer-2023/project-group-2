@@ -62,16 +62,16 @@ Currently, tasks are not saved serverside therefore closing the tab will delete 
 
 ### Architecture Diagram
 
-Web-based Interface:
+1. Web-based Interface:
 Web Browser, TaskFlow App
 
-Authentication:
+2. Authentication:
 User Management, Task Management Logic
 
-Application-specific Functionality:
+3. Application-specific Functionality:
 Task Services, Notification System
 
-Database Management:
+4. Database Management:
 User Storage, Application Storage, Logging and Monitoring
 
 ### Technologies
